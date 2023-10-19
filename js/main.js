@@ -40,7 +40,7 @@ images.forEach((currentElement) => {
     console.log(imgSrc, title, text);
 
     const htmlString = `
-    <div class="image">
+    <div class="slide-item">
         <img src="${imgSrc}">
         <div class="caption">
             <h4>${title}</h4>
@@ -51,11 +51,11 @@ images.forEach((currentElement) => {
     slideDomElement.innerHTML += htmlString;
 });
 
-const imageDomElement = document.getElementsByClassName('image');
-console.log(imageDomElement);
+const slideItemDomElement = document.getElementsByClassName('slide-item');
+console.log(slideItemDomElement);
 
 let currentIndex = 0;
-let currentSlide = imageDomElement[currentIndex];
+let currentSlide = slideItemDomElement[currentIndex];
 currentSlide.classList.add('active');
 console.log(currentSlide);
 
@@ -68,7 +68,7 @@ ctrlNext.addEventListener('click', function () {
         currentIndex++;
     }
 
-    currentSlide = imageDomElement[currentIndex];
+    currentSlide = slideItemDomElement[currentIndex];
     currentSlide.classList.add('active');
 });
 
@@ -76,11 +76,11 @@ const ctrlPrev = document.querySelector('.ctrl-prev');
 ctrlPrev.addEventListener('click', function () {
     currentSlide.classList.remove('active'); 
     if (currentIndex === 0) {
-        currentIndex = imageDomElement.length - 1;
+        currentIndex = slideItemDomElement.length - 1;
     } else {
         currentIndex--;
     }
 
-    currentSlide = imageDomElement[currentIndex];
+    currentSlide = slideItemDomElement[currentIndex];
     currentSlide.classList.add('active');
 });
