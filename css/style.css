@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 120px 0px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.slider {
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 7/7;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.ctrl {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: lightgray;
+    border-radius: 50%;
+    line-height: 19px;
+    padding: 0px 2px;
+    cursor: pointer;
+}
+
+.ctrl.ctrl-prev {
+    top: 5px;
+}
+
+.ctrl.ctrl-next {
+    bottom: 5px;
+}
