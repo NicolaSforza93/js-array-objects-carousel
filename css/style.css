@@ -25,6 +25,20 @@ section {
     aspect-ratio: 7/7;
     object-fit: cover;
     object-position: right center;
+    position: relative;
+}
+
+.slide .caption {
+    text-align: right;
+    position: absolute;
+    bottom: 36px;
+    right: 12px;
+    color: white;
+}
+
+.slide .caption p {
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 .ctrl {
@@ -40,8 +54,17 @@ section {
 
 .ctrl.ctrl-prev {
     top: 5px;
+    z-index: 50;
 }
 
 .ctrl.ctrl-next {
     bottom: 5px;
+}
+
+.slide > * {
+    display: none;
+}
+
+.slide .active {
+    display: block;
 }
