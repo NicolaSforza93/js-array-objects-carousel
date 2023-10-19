@@ -59,8 +59,7 @@ let currentSlide = slideItemDomElement[currentIndex];
 currentSlide.classList.add('active');
 console.log(currentSlide);
 
-const ctrlNext = document.querySelector('.ctrl-next');
-ctrlNext.addEventListener('click', function () {
+const slideNext = () => {
     currentSlide.classList.remove('active'); 
     if (currentIndex === images.length - 1) {
         currentIndex = 0;
@@ -70,10 +69,9 @@ ctrlNext.addEventListener('click', function () {
 
     currentSlide = slideItemDomElement[currentIndex];
     currentSlide.classList.add('active');
-});
+};
 
-const ctrlPrev = document.querySelector('.ctrl-prev');
-ctrlPrev.addEventListener('click', function () {
+const slidePrev = () => {
     currentSlide.classList.remove('active'); 
     if (currentIndex === 0) {
         currentIndex = slideItemDomElement.length - 1;
@@ -83,4 +81,30 @@ ctrlPrev.addEventListener('click', function () {
 
     currentSlide = slideItemDomElement[currentIndex];
     currentSlide.classList.add('active');
-});
+};
+
+let clock
+
+function startSlide() {
+    console.log('start');
+    clock = setInterval(slideNext, 3000);
+}
+
+function stopSlide() {
+    console.log('stop');
+    clearInterval(clock);
+}
+
+
+const startDomElement = document.getElementById('start');
+startDomElement.addEventListener('click', startSlide);
+const stopDomElement = document.getElementById('stop');
+stopDomElement.addEventListener('click', stopSlide);
+
+
+
+const ctrlNext = document.querySelector('.ctrl-next');
+ctrlNext.addEventListener('click', slideNext);
+
+const ctrlPrev = document.querySelector('.ctrl-prev');
+ctrlPrev.addEventListener('click', slidePrev);
