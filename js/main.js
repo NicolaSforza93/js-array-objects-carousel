@@ -31,6 +31,8 @@ console.log(images);
 
 const slideDomElement = document.querySelector('.slide');
 console.log(slideDomElement);
+const thumbDomElement = document.querySelector('.thumbnails');
+console.log(thumbDomElement);
 
 images.forEach((currentElement) => {
     console.log(currentElement);
@@ -48,39 +50,53 @@ images.forEach((currentElement) => {
         </div>
     </div>`
 
+    const htmlThumb = `
+    <div class="thumb-item">
+        <img src="${imgSrc}">
+    </div>`
+
     slideDomElement.innerHTML += htmlString;
+    thumbDomElement.innerHTML += htmlThumb;
 });
 
 const slideItemDomElement = document.getElementsByClassName('slide-item');
 console.log(slideItemDomElement);
+const thumbItemDomElement = document.getElementsByClassName('thumb-item');
+console.log(thumbItemDomElement);
 
 let currentIndex = 0;
 let currentSlide = slideItemDomElement[currentIndex];
 currentSlide.classList.add('active');
 console.log(currentSlide);
 
+let currentThumb = thumbItemDomElement[currentIndex];
+currentThumb.classList.add('active');
+console.log(currentThumb);
+
 const slideNext = () => {
-    currentSlide.classList.remove('active'); 
+    currentSlide = slideItemDomElement[currentIndex].classList.remove('active'); 
+    currentThumb = thumbItemDomElement[currentIndex].classList.remove('active');
     if (currentIndex === images.length - 1) {
         currentIndex = 0;
     } else {
         currentIndex++;
     }
 
-    currentSlide = slideItemDomElement[currentIndex];
-    currentSlide.classList.add('active');
+    currentSlide = slideItemDomElement[currentIndex].classList.add('active');
+    currentThumb = thumbItemDomElement[currentIndex].classList.add('active');
 };
 
 const slidePrev = () => {
-    currentSlide.classList.remove('active'); 
+    currentSlide = slideItemDomElement[currentIndex].classList.remove('active');
+    currentThumb = thumbItemDomElement[currentIndex].classList.remove('active'); 
     if (currentIndex === 0) {
         currentIndex = slideItemDomElement.length - 1;
     } else {
         currentIndex--;
     }
 
-    currentSlide = slideItemDomElement[currentIndex];
-    currentSlide.classList.add('active');
+    currentSlide = slideItemDomElement[currentIndex].classList.add('active');
+    currentThumb = thumbItemDomElement[currentIndex].classList.add('active');
 };
 
 let clock

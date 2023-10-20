@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/40396ce4f1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>Carosello Array di Oggetti</title>
 </head>
@@ -12,19 +15,23 @@
     <section>
         <div class="container">
             <div class="slider">
-                <div class="ctrl ctrl-prev">
-                    <i class="fa-solid fa-chevron-up"></i>
-                </div>
                 <div class="slide">
                     <!-- <img src="./img/01.webp" alt=""> -->
                 </div>
-                <div class="ctrl ctrl-next">
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="thumbnails">
+                    <div class="ctrl ctrl-prev">
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="ctrl ctrl-next">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
                 </div>
             </div>
+            <div class="btn-autoplay">
+                <button id="start"><i class="fa-solid fa-circle-play"></i></button>
+                <button id="stop"><i class="fa-solid fa-circle-stop"></i></button>
+            </div>
         </div>
-        <button id="start">start</button>
-        <button id="stop">stop</button>
     </section>
    
 

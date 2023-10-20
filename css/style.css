@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 section {
     padding: 120px 0px;
 }
@@ -14,12 +18,13 @@ section {
 }
 
 .slider {
-    max-width: 400px;
+    max-width: 498px;
     margin: 0 auto;
     position: relative;
+    display: flex;
 }
 
-.slide img {
+.slide-item img {
     width: 100%;
     display: block;
     aspect-ratio: 7/7;
@@ -31,14 +36,19 @@ section {
 .slide .caption {
     text-align: right;
     position: absolute;
-    bottom: 36px;
-    right: 12px;
+    bottom: 15px;
+    right: 95px;
+    left: 10px;
     color: white;
+    background-color: rgba(0, 0, 0, 0.425);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .slide .caption p {
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 5px;
+    font-weight: 300;
 }
 
 .ctrl {
@@ -50,6 +60,7 @@ section {
     line-height: 19px;
     padding: 0px 2px;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .ctrl.ctrl-prev {
@@ -59,6 +70,7 @@ section {
 
 .ctrl.ctrl-next {
     bottom: 5px;
+    z-index: 50;
 }
 
 .slide > * {
@@ -67,4 +79,40 @@ section {
 
 .slide .active {
     display: block;
+}
+
+.thumbnails {
+    flex-shrink: 0;
+    flex-basis: 83px;
+    position: relative;
+}
+
+.thumbnails > .thumb-item {
+    opacity: 0.6;
+}
+
+.thumbnails .active {
+    opacity: 1;
+    border: 2px solid tomato;
+}
+
+.thumb-item img{
+    width: 100%;
+    display: block;
+    aspect-ratio: 7/7;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.btn-autoplay {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+#start, #stop {
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
 }
