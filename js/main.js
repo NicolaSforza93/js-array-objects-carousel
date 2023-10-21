@@ -30,16 +30,16 @@ const images = [
 console.log(images);
 
 const slideDomElement = document.querySelector('.slide');
-console.log(slideDomElement);
+// console.log(slideDomElement);
 const thumbDomElement = document.querySelector('.thumbnails');
-console.log(thumbDomElement);
+// console.log(thumbDomElement);
 
 images.forEach((currentElement) => {
-    console.log(currentElement);
+    // console.log(currentElement);
     const imgSrc = currentElement.image;
     const title = currentElement.title;
     const text = currentElement.text;
-    console.log(imgSrc, title, text);
+    // console.log(imgSrc, title, text);
 
     const htmlString = `
     <div class="slide-item">
@@ -60,18 +60,32 @@ images.forEach((currentElement) => {
 });
 
 const slideItemDomElement = document.getElementsByClassName('slide-item');
-console.log(slideItemDomElement);
+// console.log(slideItemDomElement);
 const thumbItemDomElement = document.getElementsByClassName('thumb-item');
-console.log(thumbItemDomElement);
+// console.log(thumbItemDomElement);
+
+for(let i = 0; i < thumbItemDomElement.length; i++) {
+    // console.log(thumbItemDomElement[i]);
+    thumbItemDomElement[i].addEventListener('click', function () {
+        // console.log('click su thumb', this, i);
+        slideItemDomElement[currentIndex].classList.remove('active');
+        thumbItemDomElement[currentIndex].classList.remove('active');
+        currentIndex = i;
+        slideItemDomElement[currentIndex].classList.add('active');
+        thumbItemDomElement[currentIndex].classList.add('active');
+    })
+}
 
 let currentIndex = 0;
 let currentSlide = slideItemDomElement[currentIndex];
 currentSlide.classList.add('active');
-console.log(currentSlide);
+// console.log(currentSlide);
 
 let currentThumb = thumbItemDomElement[currentIndex];
 currentThumb.classList.add('active');
-console.log(currentThumb);
+// console.log(currentThumb);
+
+
 
 const slideNext = () => {
     currentSlide = slideItemDomElement[currentIndex].classList.remove('active'); 

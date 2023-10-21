@@ -22,6 +22,7 @@ section {
     margin: 0 auto;
     position: relative;
     display: flex;
+    box-shadow: 10px 9px 10px #888888;
 }
 
 .slide-item img {
@@ -89,6 +90,7 @@ section {
 
 .thumbnails > .thumb-item {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .thumbnails .active {
@@ -112,7 +114,20 @@ section {
 }
 
 #start, #stop {
-    border: none;
+    padding: 3px;
     cursor: pointer;
     font-size: 25px;
+    box-shadow: 5px 7px 10px #888888;
+    border-radius: 50%;
+    border: none;
+}
+
+#start:active {
+    position: relative;
+    top: 1px;
+}
+
+#stop:active {
+    position: relative;
+    top: 1px;
 }
